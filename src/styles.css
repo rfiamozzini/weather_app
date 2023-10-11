@@ -119,6 +119,7 @@ ul.city-info {
   color: #9baeb7;
 }
 
-footer {
+.footer {
   text-align: center;
+  display: block;
 }
