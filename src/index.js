@@ -44,13 +44,15 @@ let apiKey = "d2dea6f10ea74e3ef22300c3ed13b2a2";
 // Homework Week 5
 
 function searchCity(response) {
-  console.log(response.data.weather[0].description);
+  console.log(response.data.main.temp_max);
 
   let apiTemperature = Math.round(response.data.main.temp);
   let apiFeelsLike = Math.round(response.data.main.feels_like);
   let apiHumidity = Math.round(response.data.main.humidity);
   let apiWind = Math.round(response.data.wind.speed);
   let apiDescription = response.data.weather[0].description;
+  let apiMaxTemp = Math.round(response.data.main.temp_max);
+  let apiMinTemp = Math.round(response.data.main.temp_min);
   let apiCity = response.data.name;
 
   let temperatureTag = document.querySelector("#temperature");
@@ -60,6 +62,8 @@ function searchCity(response) {
   let descriptionTag = document.querySelector("#description");
   let h1 = document.querySelector("h1");
   let iconTag = document.querySelector("#icon");
+  let maxTempTag = document.querySelector("#max-temp");
+  let minTempTag = document.querySelector("#min-temp");
 
   h1.innerHTML = apiCity;
   temperatureTag.innerHTML = `${apiTemperature}°`;
@@ -67,6 +71,9 @@ function searchCity(response) {
   humidityTag.innerHTML = `Humidity: ${apiHumidity}%`;
   windSpeedTag.innerHTML = `Wind: ${apiWind}km/h`;
   descriptionTag.innerHTML = apiDescription;
+  maxTempTag.innerHTML = apiMaxTemp;
+  minTempTag.innerHTML = apiMinTemp;
+
   iconTag.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
