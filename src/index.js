@@ -44,16 +44,20 @@ let apiKey = "d2dea6f10ea74e3ef22300c3ed13b2a2";
 // Homework Week 5
 
 function searchCity(response) {
+  console.log(response.data.weather[0].description);
+
   let apiTemperature = Math.round(response.data.main.temp);
   let apiFeelsLike = Math.round(response.data.main.feels_like);
   let apiHumidity = Math.round(response.data.main.humidity);
   let apiWind = Math.round(response.data.wind.speed);
+  let apiDescription = response.data.weather[0].description;
   let apiCity = response.data.name;
 
   let temperatureTag = document.querySelector("#temperature");
   let feelsLikeTag = document.querySelector("#feels-like");
   let humidityTag = document.querySelector("#humidity");
   let windSpeedTag = document.querySelector("#wind-speed");
+  let descriptionTag = document.querySelector("#description");
   let h1 = document.querySelector("h1");
 
   h1.innerHTML = apiCity;
@@ -61,6 +65,7 @@ function searchCity(response) {
   feelsLikeTag.innerHTML = apiFeelsLike;
   humidityTag.innerHTML = `Humidity: ${apiHumidity}%`;
   windSpeedTag.innerHTML = `Wind: ${apiWind}km/h`;
+  descriptionTag.innerHTML = apiDescription;
 }
 
 function searchAndDisplay(event) {

@@ -123,3 +123,7 @@ ul.city-info {
   text-align: center;
   display: block;
 }
+
+#description {
+  text-transform: capitalize;
+}
