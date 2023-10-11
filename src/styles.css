@@ -61,9 +61,8 @@ ul.city-info {
   top: 40px;
 }
 
-.main-icon {
+#icon {
   font-size: 90px;
-  color: rgb(253, 192, 11);
 }
 
 .main-icon-info {

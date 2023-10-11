@@ -37,7 +37,7 @@ let currentDate = document.querySelector("#current-date");
 let currentTime = document.querySelector("#current-time");
 
 currentDate.innerHTML = `${days}, ${date} ${month}, ${year}`;
-currentTime.innerHTML = `Local Time: ${hours}:${minutes}`;
+currentTime.innerHTML = `Last updated: ${hours}:${minutes}`;
 
 let apiKey = "d2dea6f10ea74e3ef22300c3ed13b2a2";
 
@@ -59,6 +59,7 @@ function searchCity(response) {
   let windSpeedTag = document.querySelector("#wind-speed");
   let descriptionTag = document.querySelector("#description");
   let h1 = document.querySelector("h1");
+  let iconTag = document.querySelector("#icon");
 
   h1.innerHTML = apiCity;
   temperatureTag.innerHTML = `${apiTemperature}°`;
@@ -66,6 +67,10 @@ function searchCity(response) {
   humidityTag.innerHTML = `Humidity: ${apiHumidity}%`;
   windSpeedTag.innerHTML = `Wind: ${apiWind}km/h`;
   descriptionTag.innerHTML = apiDescription;
+  iconTag.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function searchAndDisplay(event) {
