@@ -48,10 +48,10 @@
           <ul class="city-info">
             <li id="current-date"></li>
             <li id="current-time"></li>
-            <li>Humidity: 0mm</li>
-            <li>Wind: 17km/h</li>
-            <li>Sunrise: 06:36</li>
-            <li>Sunset: 20:50</li>
+            <li id="humidity">Humidity: 0%</li>
+            <li id="wind-speed">Wind: 17km/h</li>
+            <li id="sunrise">Sunrise: 06:36</li>
+            <li is="sunset">Sunset: 20:50</li>
           </ul>
         </div>
 
@@ -65,7 +65,7 @@
 
           <div class="feels-like-max-min">
             <div>Feels like <span id="feels-like">23</span>°</div>
-            <div>H:24°| L13°</div>
+            <div id="max-temp">H:24°| L13°</div>
           </div>
 
           <div class="temperature-switcher-container">
@@ -122,11 +122,6 @@
         </div>
       </div>
     </div>
-    <footer>
-      <a href="https://github.com/rfiamozzini/weather_app.git" target="_blank"
-        >Open-source code</a
-      >, by Rebeca Fiamozzini
-    </footer>
     <script src="src/index.js"></script>
     <script
       src="https://kit.fontawesome.com/5b656ccc4a.js"
