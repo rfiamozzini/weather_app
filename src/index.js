@@ -55,6 +55,8 @@ function searchCity(response) {
   let apiMinTemp = Math.round(response.data.main.temp_min);
   let apiCity = response.data.name;
 
+  celsiusTemperature = response.data.main.temp;
+
   let temperatureTag = document.querySelector("#temperature");
   let feelsLikeTag = document.querySelector("#feels-like");
   let humidityTag = document.querySelector("#humidity");
@@ -113,3 +115,24 @@ function getCurrentLocation() {
 
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getCurrentLocation);
+
+function showFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  let temperatureTag = document.querySelector("#temperature");
+  temperatureTag.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function showCelsius(event) {
+  event.preventDefault();
+  let temperatureTag = document.querySelector("#temperature");
+  temperatureTag.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsius);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheit);
