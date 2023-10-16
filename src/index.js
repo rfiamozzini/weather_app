@@ -149,20 +149,13 @@ fahrenheitLink.addEventListener("click", showFahrenheit);
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return days[day];
 }
 
 function displayForecast(response) {
+  console.log(response.data);
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
@@ -197,3 +190,5 @@ function displayForecast(response) {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
+
+getForecast({ lon: 4.8897, lat: 52.374 });
