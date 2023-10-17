@@ -192,3 +192,22 @@ function displayForecast(response) {
 }
 
 getForecast({ lon: 4.8897, lat: 52.374 });
+
+let currentBackground = "light";
+
+function changeBackground() {
+  if (currentBackground === "light") {
+    currentBackground = "dark";
+
+    document.body.classList.remove("bg-light");
+    document.body.classList.add("bg-dark");
+  } else {
+    currentBackground = "light";
+
+    document.body.classList.remove("bg-dark");
+    document.body.classList.add("bg-light");
+  }
+}
+
+let changeButton = document.querySelector("#changeBackgroundButton");
+changeButton.addEventListener("click", changeBackground);
